@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import emailjs from "@emailjs/browser";
 import { RiMailSendLine } from "react-icons/ri"; /* ---- REACT ICONS*/
+import { Wrapper, Form, Label, Input, Textarea } from "./styled";
 
 const ContactForm = () => {
   const [successMessage, setSuccessMessage] = useState(false);
@@ -14,7 +15,7 @@ const ContactForm = () => {
       .max(32, "max 32 characters")
       .required("please write your name"),
     email: Yup.string()
-      .email("incorrect email")
+      .email("invalid email")
       .max(32, "max 32 characters")
       .required("Please write your email"),
     message: Yup.string(),
@@ -41,7 +42,7 @@ const ContactForm = () => {
             .then(() => {
               actions.resetForm();
               setSuccessMessage(true);
-              setTimeout(() => setSuccessMessage(false), 3600);
+              // setTimeout(() => setSuccessMessage(false));
               console.log("message sent");
             });
         } catch (error) {
@@ -50,17 +51,18 @@ const ContactForm = () => {
       },
     });
   return (
-    <>
-      <form ref={form} onSubmit={handleSubmit}>
+    <Wrapper>
+      <Form ref={form} onSubmit={handleSubmit}>
         {/* NAME */}
-        <label>
+        <Label htmlFor="name">
           {errors.name && touched.name ? (
-            <div style={{ color: "red" }}>{errors.name}</div>
+            <div style={{ color: "red" }}>Name{errors.name}</div>
           ) : (
             ""
           )}
-        </label>
-        <input
+        </Label>
+        <Input
+          className="input-fields"
           value={values.name}
           onBlur={handleBlur}
           onChange={handleChange}
@@ -70,14 +72,15 @@ const ContactForm = () => {
         />
 
         {/* EMAIL */}
-        <label>
+        <Label>
           {errors.email && touched.email ? (
             <div style={{ color: "red" }}>{errors.email}</div>
           ) : (
             ""
           )}
-        </label>
-        <input
+        </Label>
+        <Input
+          className="input-fields"
           value={values.email}
           onBlur={handleBlur}
           onChange={handleChange}
@@ -87,7 +90,8 @@ const ContactForm = () => {
         />
 
         {/* MESSAGE */}
-        <textarea
+        <Textarea
+          className="input-fields"
           value={values.message}
           onBlur={handleBlur}
           onChange={handleChange}
@@ -97,15 +101,15 @@ const ContactForm = () => {
         />
 
         {/* BUTTON */}
-        <input type="submit" value="enter" />
+        <Input className="btn" type="submit" value="enter" />
         {successMessage && (
-          <p style={{ background: "blue" }}>
+          <p style={{ color: "green" }}>
             <RiMailSendLine size={20} />
             Message Sent
           </p>
         )}
-      </form>
-    </>
+      </Form>
+    </Wrapper>
   );
 };
 
