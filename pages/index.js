@@ -1,7 +1,11 @@
-// import FormikForm from "../components/FormikForm";
+import ThreeColCTA from "../components/ThreeColCTA";
 
 const Home = () => {
-  return <div>{/* <FormikForm /> */}</div>;
+  return (
+    <>
+      <ThreeColCTA />
+    </>
+  );
 };
 
 export default Home;
