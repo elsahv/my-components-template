@@ -37,7 +37,6 @@ export default function PkgRate({
                   src={item.image}
                   alt="about-me"
                   // layout="responsive"
-
                   className="img"
                 />
               </ImgWrapper>
