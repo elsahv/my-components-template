@@ -1,9 +1,9 @@
-import ThreeColCTA from "../components/ThreeColCTA";
+import PkgRate from "../components/PkgRate";
 
 const Home = () => {
   return (
     <>
-      <ThreeColCTA />
+      <PkgRate />
     </>
   );
 };
