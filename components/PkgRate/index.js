@@ -7,6 +7,7 @@ import {
   Container,
   Grid,
   Content,
+  ItemTitle,
   ImgWrapper,
 } from "./PkgRate.styled";
 
@@ -41,7 +42,7 @@ export default function PkgRate({
                 />
               </ImgWrapper>
               <Content>
-                <h3>{item.title}</h3>
+                <ItemTitle>{item.title}</ItemTitle>
                 <ul>
                   <li>{item.price}</li>
                   <li>{item.listItem1}</li>

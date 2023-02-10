@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Container = styled.div`
-  padding: 50px 250px;
+  padding: 30px 250px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -25,7 +25,10 @@ export const Container = styled.div`
 export const Title = styled.h2`
   // text-decoration: underline;
   font-size: 40px;
-  padding-top: 50px;
+  padding-top: 30px;
+  @media only screen and (max-width: 531px) {
+    font-size: 30px;
+  }
 `;
 
 export const Description = styled.p`
@@ -37,7 +40,7 @@ export const Grid = styled.div`
   // background: teal;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 1em;
+  grid-gap: 2em;
 
   @media only screen and (max-width: 834px) {
     grid-template-columns: 1fr;
@@ -67,13 +70,19 @@ export const ImgWrapper = styled.div`
 
 export const Content = styled.div`
   padding-left: 10px;
+  padding-bottom: 50px;
 
-  h3 {
-    font-size: 20px;
-    padding-bottom: 3px;
-  }
   ul {
     padding-left: 20px;
     font-size: 20px;
+  }
+`;
+
+export const ItemTitle = styled.h3`
+  font-size: 20px;
+  padding-top: 5px;
+  padding-bottom: 3px;
+  @media only screen and (max-width: 531px) {
+    font-size: 17px;y
   }
 `;
